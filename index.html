@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2980 AI私教课程 · 竖屏海报</title>
+<style>
+  :root{
+    --teal:#2D4F4F;
+    --teal-deep:#233F3F;
+    --orange:#E67E22;
+    --orange-soft:#F39C4A;
+    --ink:#2B3440;
+    --slate:#4B5563;
+    --mist:#EAF0EF;
+    --paper:#FBFAF7;
+    --line:rgba(45,79,79,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:#D8DEDC;
+    font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+    display:flex;justify-content:center;
+    padding:32px 0;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  .poster{
+    width:480px;
+    background:var(--paper);
+    box-shadow:0 20px 60px rgba(0,0,0,.18);
+    overflow:hidden;
+    position:relative;
+  }
+
+  /* ===== 顶部 HERO ===== */
+  .hero{
+    background:
+      radial-gradient(120% 80% at 85% 0%, rgba(230,126,34,.22), transparent 55%),
+      linear-gradient(160deg,var(--teal) 0%,var(--teal-deep) 100%);
+    color:#fff;
+    padding:44px 36px 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"AI";
+    position:absolute;right:-14px;bottom:-34px;
+    font-size:150px;font-weight:900;font-style:italic;
+    color:rgba(255,255,255,.06);letter-spacing:-6px;
+  }
+  .badge{
+    display:inline-block;
+    border:1px solid rgba(255,255,255,.4);
+    color:#fff;
+    font-size:12px;letter-spacing:2px;
+    padding:5px 14px;border-radius:100px;
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:38px;line-height:1.28;font-weight:900;
+    letter-spacing:.5px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--orange-soft);
+  }
+  .hero .hook{
+    margin-top:16px;
+    font-size:15px;line-height:1.7;
+    color:rgba(255,255,255,.82);
+    font-weight:300;
+    position:relative;z-index:2;
+  }
+
+  /* ===== 价格锚点 ===== */
+  .price-bar{
+    background:var(--orange);
+    color:#fff;
+    display:flex;align-items:baseline;justify-content:center;gap:6px;
+    padding:18px 0;
+    position:relative;z-index:3;
+  }
+  .price-bar .sym{font-size:22px;font-weight:700;}
+  .price-bar .num{font-size:48px;font-weight:900;letter-spacing:1px;line-height:1;}
+  .price-bar .unit{font-size:14px;font-weight:400;opacity:.9;margin-left:4px;}
+
+  /* ===== 通用区块 ===== */
+  .sec{padding:34px 36px 6px;}
+  .sec-title{
+    display:flex;align-items:center;gap:10px;
+    font-size:18px;font-weight:800;color:var(--teal);
+    margin-bottom:20px;
+  }
+  .sec-title::before{
+    content:"";width:5px;height:20px;border-radius:3px;
+    background:var(--orange);
+  }
+
+  /* ===== 痛点 ===== */
+  .pains{list-style:none;display:flex;flex-direction:column;gap:12px;}
+  .pains li{
+    display:flex;gap:10px;align-items:flex-start;
+    font-size:14px;line-height:1.6;color:var(--slate);
+  }
+  .pains li span{
+    flex:none;width:20px;height:20px;border-radius:50%;
+    background:var(--mist);color:var(--teal);
+    font-size:13px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;margin-top:1px;
+  }
+
+  /* ===== 权益卡片 ===== */
+  .benefits{display:flex;flex-direction:column;gap:14px;}
+  .b-card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px 18px 18px 16px;
+    display:flex;gap:14px;align-items:flex-start;
+    background:#fff;
+    position:relative;
+  }
+  .b-card .no{
+    flex:none;
+    width:38px;height:38px;border-radius:10px;
+    background:linear-gradient(150deg,var(--teal),var(--teal-deep));
+    color:#fff;font-size:17px;font-weight:900;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .b-card.accent .no{background:linear-gradient(150deg,var(--orange),var(--orange-soft));}
+  .b-body h3{
+    font-size:15.5px;font-weight:800;color:var(--ink);margin-bottom:6px;
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  }
+  .b-body .tag{
+    font-size:11px;font-weight:600;
+    background:var(--mist);color:var(--teal);
+    padding:2px 8px;border-radius:6px;
+  }
+  .b-body p{font-size:13px;line-height:1.65;color:var(--slate);}
+
+  /* ===== 稀缺 ===== */
+  .scarcity{
+    margin:30px 36px 0;
+    background:var(--teal);
+    border-radius:14px;
+    color:#fff;text-align:center;
+    padding:22px 20px;
+    position:relative;overflow:hidden;
+  }
+  .scarcity::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 20% 0%,rgba(230,126,34,.25),transparent 60%);
+  }
+  .scarcity .big{
+    font-size:26px;font-weight:900;letter-spacing:1px;position:relative;
+  }
+  .scarcity .big b{color:var(--orange-soft);font-size:34px;}
+  .scarcity .sub{font-size:12.5px;opacity:.85;margin-top:6px;position:relative;}
+
+  /* ===== CTA ===== */
+  .cta{
+    padding:28px 36px 38px;
+    display:flex;align-items:center;gap:18px;
+  }
+  .cta .qr{
+    flex:none;width:96px;height:96px;border-radius:12px;
+    background:
+      repeating-linear-gradient(0deg,var(--ink) 0 6px,transparent 6px 12px),
+      repeating-linear-gradient(90deg,var(--ink) 0 6px,#fff 6px 12px);
+    background-blend-mode:multiply;
+    border:4px solid #fff;
+    box-shadow:0 0 0 1px var(--line);
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:11px;font-weight:700;text-align:center;
+    position:relative;
+  }
+  .cta .qr span{
+    background:rgba(43,52,64,.78);padding:3px 6px;border-radius:5px;
+  }
+  .cta .cta-text .go{
+    font-size:20px;font-weight:900;color:var(--teal);margin-bottom:6px;
+  }
+  .cta .cta-text .go b{color:var(--orange);}
+  .cta .cta-text p{font-size:13px;color:var(--slate);line-height:1.6;}
+
+  /* ===== 页脚 ===== */
+  .foot{
+    background:var(--teal-deep);color:rgba(255,255,255,.6);
+    font-size:11px;text-align:center;padding:14px;letter-spacing:1px;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="badge">AI 私教 · 全年陪跑</div>
+      <h1>给自己配一个<br><em>全年 AI 私教</em></h1>
+      <p class="hook">一次把业务和 AI 学习路径聊透，<br>剩下一整年，我陪你跑。</p>
+    </div>
+
+    <!-- PRICE -->
+    <div class="price-bar">
+      <span class="sym">¥</span><span class="num">2980</span><span class="unit">/ 全年（付款日起 12 个月）</span>
+    </div>
+
+    <!-- 痛点 -->
+    <div class="sec">
+      <div class="sec-title">你是不是也这样</div>
+      <ul class="pains">
+        <li><span>1</span>看了很多 AI 教程，却总落不到自己业务上？</li>
+        <li><span>2</span>获客难、数据抓不全、爬虫写不顺，问题没人帮你拆？</li>
+        <li><span>3</span>模型越用越贵，不知道怎么把成本打下来？</li>
+      </ul>
+    </div>
+
+    <!-- 权益 -->
+    <div class="sec">
+      <div class="sec-title">你能得到什么</div>
+      <div class="benefits">
+
+        <div class="b-card">
+          <div class="no">1</div>
+          <div class="b-body">
+            <h3>4 小时一对一私教 <span class="tag">线下 / 线上</span></h3>
+            <p>按小时自由拆分组合。个人定制内容学习 + 业务梳理，重点解决获客 / 数据抓取 / 爬虫等实际问题。</p>
+          </div>
+        </div>
+
+        <div class="b-card">
+          <div class="no">2</div>
+          <div class="b-body">
+            <h3>全年专属陪跑群 <span class="tag">12 个月</span></h3>
+            <p>问题共解 + 持续分享最新 AI 工具 + 降低模型成本的实操方法。</p>
+          </div>
+        </div>
+
+        <div class="b-card">
+          <div class="no">3</div>
+          <div class="b-body">
+            <h3>线下活动全年免费</h3>
+            <p>未来由主理人主办的线下活动，学员均可免费参加。</p>
+          </div>
+        </div>
+
+        <div class="b-card accent">
+          <div class="no">4</div>
+          <div class="b-body">
+            <h3>专属分佣</h3>
+            <p>推荐好友报名成功，即可获得专属分佣。老学员既是用户，也是推广伙伴。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 稀缺 -->
+    <div class="scarcity">
+      <div class="big">每年度陪跑仅限 <b>20</b> 人</div>
+      <div class="sub">满员即止 · 只为保证每个人的陪跑质量</div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="qr"><span>二维码占位</span></div>
+      <div class="cta-text">
+        <div class="go">扫码<b>报名 / 咨询</b></div>
+        <p>名额有限，先到先得。<br>扫码加我，聊聊你的业务。</p>
+      </div>
+    </div>
+
+    <div class="foot">AI 私教 · 全年陪跑　|　2980 元　|　仅限 20 人</div>
+
+  </div>
+</body>
+</html>
